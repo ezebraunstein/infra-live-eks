@@ -1,9 +1,9 @@
 provider "aws" {
-  region = var.AWS_REGION
+  region = "us-east-1"
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "${var.cluster_name}-eks-cluster-role"
+  name = "dev-cluster-eks-cluster-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policies" {
 }
 
 resource "aws_iam_role" "eks_node_role" {
-  name = "${var.cluster_name}-eks-node-role"
+  name = "dev-cluster-eks-node-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
